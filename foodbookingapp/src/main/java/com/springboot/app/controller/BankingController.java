@@ -10,23 +10,27 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
-import com.springboot.app.client.UserClient;
+import com.springboot.app.client.BankAccountClient;
 import com.springboot.app.entity.Item;
 
 @RestController 
+@RequestMapping("/booking") 
+public class BankingController { 
 
- public class VendorController { 
- 		
-	@RequestMapping("/hi")
- 	 public String hello() {
- 		 return hello();
- 	 }
- 		 
-		
- 	} 
+	@Autowired 
+	BankAccountClient account; 
 
- 
- 
- 
+	@GetMapping("/checkCardNumber/{cardNumber}") 
+	public boolean checkCardNumber(@PathVariable Long cardNumber) { 
+		return account.checkCardNumber(cardNumber); 
+	} 
+
+
+
+
+} 
+
+
+
+
 

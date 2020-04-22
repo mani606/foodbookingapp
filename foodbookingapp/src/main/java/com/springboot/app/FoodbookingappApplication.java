@@ -12,9 +12,10 @@ import com.springboot.app.config.RibbonConfiguration;
 
 @SpringBootApplication
 @EnableEurekaClient
-@EnableBatchProcessing
-@EnableZuulProxy
-@EnableFeignClients
+
+
+@EnableFeignClients("com.springbbot.app")
+
 @RibbonClient(name="banking-service",configuration=RibbonConfiguration.class)
 public class FoodbookingappApplication {
 

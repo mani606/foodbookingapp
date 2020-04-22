@@ -22,7 +22,7 @@ import com.springboot.service.repository.TransactionRepository;
 
 
 @RestController 
-@RequestMapping("/banking") 
+@RequestMapping("/bankings") 
 public class BankAccountController { 
 
 	@Autowired 
@@ -70,6 +70,11 @@ public class BankAccountController {
 	public List<Transaction> getStatement(@PathVariable Long accountNumber){		 
 		return null;		 
 	} 
+	@GetMapping("/checkCardNumber/{cardnumber}") 
+	 	public boolean checkCardNumber(@PathVariable Long cardnumber){ 
+	 		Optional<BankAccount> account =repository.findByCardNumber(cardnumber); 
+	 		return account.isPresent()?true : false; 
+	 	} 
 
 
 }

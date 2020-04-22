@@ -41,8 +41,6 @@ public class BatchConfiguration {
 	DataSource datasource;
 
 
-
-
 	@Bean 
 	public FlatFileItemReader<Item> reader() { 
 		return new FlatFileItemReaderBuilder<Item>() 
